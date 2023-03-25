@@ -16,8 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.TeamView.as_view()),
-]
+    path("users/", views.UserListView.as_view()),
+    path("user-doc/", views.getUserDocuments),
+    path("staff-doc/", views.getStaffDocuments),
+    path("create_user_doc/", views.UserDocumentUploadView.as_view()),
+    path("create_staff_doc/", views.StaffDocumentUploadSerializer.as_view()),
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
