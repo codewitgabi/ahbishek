@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import *
+from .models import Team, Document, UserDocument, StaffDocument, Staff
 
 admin.site.register(Team)
 admin.site.register(Document)

@@ -29,9 +29,9 @@ def getUserDocuments(request):
 		model = doc.content_type.model
 		
 		if model == "userdocument":
-			id = doc.object_id
+			docID = doc.object_id
 			
-			user_doc = UserDocument.objects.get(id=id)
+			user_doc = UserDocument.objects.get(id=docID)
 			
 			json_data["id"] = user_doc.id
 			json_data["uploader"] = user_doc.uploader.username
@@ -128,9 +128,9 @@ def getStaffDocuments(request):
 		model = doc.content_type.model
 		
 		if model == "staffdocument":
-			id = doc.object_id
+			docId = doc.object_id
 			
-			staff_doc = StaffDocument.objects.get(id=id)
+			staff_doc = StaffDocument.objects.get(id=docId)
 			
 			json_data["id"] = staff_doc.id
 			json_data["uploader"] = staff_doc.uploader.user.username
